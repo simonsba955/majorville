@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid Template Areas / Practical Example</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <style>
+        .barlow-thin {
+            font-family: "Barlow", sans-serif;
+            font-weight: 100;
+        }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --col-count-5: 5;
+
+    font-size: 20px;
+}
+
+body {
+    margin: 1rem;
+    background-color: rgb(245, 232, 212);
+}
+
+.container {
+    display: grid;
+    min-height: 100vh;
+    min-height: 100dvh;
+    grid-template-columns: 3fr 2fr;
+    grid-template-rows: auto auto auto auto 1fr auto;
+    /* gap: 0.5rem; */
+
+    grid-template-areas: 
+        "header header"
+        "left left"
+        "right right"
+        "nav nav"
+        "main main"
+        "footer footer";
+}
+
+.item {
+    padding: 1rem;
+    /*border: 2px solid #000;*/
+}
+
+.left {
+    grid-area: left;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.25rem;
+    font-size: x-large;
+    border: solid darkblue 3px;
+    background-color: rgb(86, 151, 190);
+    color: black;
+}
+
+.right {
+    grid-area: right;
+    
+}
+
+header {
+    grid-area: header;
+    background: red url(download.jpg);
+}
+
+.nav {
+    grid-area: nav;
+    
+    padding: 0;
+
+    margin: 10px;
+        font-size: 50px;
+        text-align: center;
+}
+
+.button {
+    background-color: rgb(86, 151, 190);
+    border: none;
+    color: rgb(245, 232, 212);
+    padding: 10px 20px;
+
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 40px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+
+.button:hover {
+    background-color: darkblue;
+}
+
+.main-content {
+    grid-area: main;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    font-size: x-large;
+    border: solid darkblue 1px;
+    background-color: rgb(86, 151, 190);
+    color: black;
+    
+}
+
+footer {
+    grid-area: footer;
+    background-color: rgb(86, 151, 190);
+        color: black;
+        border: solid darkblue 2px;
+        margin: 40px;
+        padding: 30px;
+        font-size: xx-large;
+    
+}
+
+.responsive {
+    width: 100%;
+    height: auto;
+  }
+
+/* Start of CSS for the mobile navbar */
+
+
+/* End of CSS for mobile navbar */
+
+@media (width > 750px) {
+    .container {
+        grid-template-columns: repeat(var(--col-count-5), 1fr);
+        grid-template-rows: auto auto 1fr 1fr auto;
+        grid-template-areas: 
+        "header header header header header"
+        "nav nav nav nav nav"
+        "left main main main right"
+        "left main main main right"
+        "footer footer footer footer footer";
+    }
+
+    .nav a {
+        padding: 0.75rem;
+    }
+
+    .nav a:hover {
+        background-color: darkblue;
+        color: rgb(245, 232, 212);
+    }
+
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <aside class="item left">
+            
+    
+        </aside>
+        <!-- <div class="container"> -->
+
+            <aside class="item right">
+                <img src="Majorville Summer Solstice Logo.png" alt="Majorville Summer Solstice Logo." class="responsive">
+            </aside>
+
+        <header class="item"><img src="576399961_1491106f90_b.jpg" alt="Cabin in the middle of a forest." class="responsive"></header>
+
+        
+<p class="attribution">"<a target="_blank" rel="noopener noreferrer" href="https://www.flickr.com/photos/8563790@N08/576399961">My Log Cabin 1985</a>" by <a target="_blank" rel="noopener noreferrer" href="https://www.flickr.com/photos/8563790@N08">anoldent</a> is licensed under <a target="_blank" rel="noopener noreferrer" href="https://creativecommons.org/licenses/by-sa/2.0/?ref=openverse">CC BY-SA 2.0></a>. </p>
+
+
+
+        <aside class="item left">
+            <img src="15761537775_2a6eab98fe_b.jpg" alt="Trees behind a lake." width="400" class="responsive">
+
+            <p class="attribution">"<a target="_blank" rel="noopener noreferrer" href="https://www.flickr.com/photos/19646481@N06/15761537775">Michigan in Pictures **Explored** #83</a>" by <a target="_blank" rel="noopener noreferrer" href="https://www.flickr.com/photos/19646481@N06">LadyDragonflyCC - &gt;;&lt;</a> is licensed under <a target="_blank" rel="noopener noreferrer" href="https://creativecommons.org/licenses/by/2.0/?ref=openverse">CC BY 2.0></a>. </p>
+        </aside>
+        <nav class="item nav">
+                <a href="index.html" class="button">Home</a>
+                <a href="history.html" class="button">History</a>
+                <a href="activities.html" class="button">Activities</a>
+        </nav>
+        
+        <main class="item main-content">
+            <h1>History of Majorville</h1>
+            <p>Majorville is located on Lake Michigan. In the 1870s and 1880s, Majorville was a booming lumber town!
+            </p>
+            <p>John Major settled in Northern Michigan. He began buying land in Platte and Lake townships as investments and, in late 1854, purchased 122 acres. </p>
+    
+            <p>Major cleared 20 acres and built a log cabin for his family to live in. Lumber speculators soon arrived looking for stands of white pine. By the late 1850s, Daniel Thomas bought a 5-acre parcel on Lake Michigan Lumber speculators were on their way north as the forests near Grand Haven and Muskegon were harvested.</p>
+    
+            <p>Dr. Arthur O&apos;Leary began looking for someone who could manage his enterprise. He found Charles T. Wright started a lumber operation with his brother in 1865.</p>   
+    
+            <p>The sawmill was built on the south side of Pine Creek not far from Lake Michigan. The creek was dammed to create a mill pond right in front of the sawmill. Mill operation began in 1869 for the purpose of producing white pine lumber, and the town of Majorville was established.</p>
+        </main>
+
+        <footer class="item footer"><p>&copy; Bailey Simons 2024</p></footer>
+    </div>
+
+<!-- End of grid DIV -->
+
+</body>
+</html>
